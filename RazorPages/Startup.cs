@@ -27,15 +27,19 @@ namespace RazorPages
                 app.UseDeveloperExceptionPage();
             }
 
+            // Add Middleware
+            app.UseStaticFiles(); // static HTML, CSS, JavaScript Execute
+            app.UseFileServer(); // "Microsoft Docs UseFileServer"
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages(); // Razor
-                endpoints.MapGet("/", async context =>
+                /*endpoints.MapGet("/", async context =>
                 {
                     await context.Response.WriteAsync("Hello World!");
-                });
+                });*/
             });
         }
     }
