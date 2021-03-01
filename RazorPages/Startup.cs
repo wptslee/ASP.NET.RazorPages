@@ -29,7 +29,7 @@ namespace RazorPages
 
             // Add Middleware
             app.UseStaticFiles(); // static HTML, CSS, JavaScript Execute
-            app.UseFileServer(); // "Microsoft Docs UseFileServer"
+            //app.UseFileServer(); // "Microsoft Docs UseFileServer"
 
             app.UseRouting();
 
