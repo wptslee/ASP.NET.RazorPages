@@ -3,18 +3,24 @@
     "id": 1,
     "title": ".NET",
     "description": "ASP.NET Core",
-    "img": "/Portfolios/images/Blazor.jpg"
+    "img": "/Portfolios/images/Blazor.jpg",
+    "ratings": [
+      3,
+      3
+    ]
   },
   {
     "id": 2,
     "title": "Java",
     "description": "Spring Boot",
-    "img": "/Portfolios/images/Spring.jpg"
+    "img": "/Portfolios/images/Spring.jpg",
+    "ratings": null
   },
   {
     "id": 3,
     "title": "JavaScript",
     "description": "React.js",
-    "img": "/Portfolios/images/React.jpg"
+    "img": "/Portfolios/images/React.jpg",
+    "ratings": null
   }
 ]

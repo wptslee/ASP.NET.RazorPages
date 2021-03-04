@@ -31,12 +31,33 @@ namespace RazorPages.Services
         public IEnumerable<Portfolio> GetPortfolios()
         {
             //var jsonFileName = @"C:\ProjectWorks\ASP.NET.RazorPages\RazorPages\wwwroot\Portfolios\portfolios.json";
-            using (var jsonFileReader = File.OpenText(this.JsonFileName))
+            using var jsonFileReader = File.OpenText(JsonFileName);
+            var options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
+            var portfolios = JsonSerializer.Deserialize<Portfolio[]>(jsonFileReader.ReadToEnd(), options);
+            return portfolios;
+        }
+
+        public void AddRating(int portfolioId, int rating)
+        {
+            var portfolios = GetPortfolios();
+
+            if (portfolios.First(o => o.Id == portfolioId).Ratings == null)
             {
-                var options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
-                var portfolios = JsonSerializer.Deserialize<Portfolio[]>(jsonFileReader.ReadToEnd(), options);
-                return portfolios;
+                portfolios.First(o => o.Id == portfolioId).Ratings = new int[] { rating };
             }
+            else
+            {
+                var ratings = portfolios.First(o => o.Id == portfolioId).Ratings.ToList();
+                ratings.Add(rating);
+                portfolios.First(o => o.Id == portfolioId).Ratings = ratings.ToArray();
+            }
+
+            using var outStream = File.OpenWrite(JsonFileName);
+            JsonSerializer.Serialize<IEnumerable<Portfolio>>(
+                new Utf8JsonWriter(outStream, new JsonWriterOptions 
+                {
+                    SkipValidation = true, Indented = true 
+                }), portfolios);
         }
     }
 }

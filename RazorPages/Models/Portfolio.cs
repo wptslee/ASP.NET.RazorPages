@@ -17,6 +17,8 @@ namespace RazorPages.Models
         public string Description { get; set; }
         [JsonPropertyName("img")]
         public string Image { get; set; }
+        [JsonPropertyName("ratings")]
+        public int[] Ratings { get; set; }
 
         public override string ToString()
         {
