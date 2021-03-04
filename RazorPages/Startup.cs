@@ -18,6 +18,7 @@ namespace RazorPages
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages(); // Razor
+            services.AddServerSideBlazor(); // Blazor
 
             //-------------------------------------------------------------
             //- Dependency-Injection Container
@@ -45,6 +46,7 @@ namespace RazorPages
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages(); // Razor
+                endpoints.MapBlazorHub(); // Blazor
                 /*endpoints.MapGet("/", async context =>
                 {
                     await context.Response.WriteAsync("Hello World!");

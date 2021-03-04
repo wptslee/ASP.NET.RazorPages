@@ -7,6 +7,8 @@
     ViewBag.Title = "Portfolio";
 }
 
+@using RazorPages.Components
+
 <!-- Page Content -->
 <div class="container">
 
@@ -21,7 +23,8 @@
         </li>
         <li class="breadcrumb-item active">Portfolio</li>
     </ol>
-    
+
+    <h2>Razor Page 사용 출력</h2>
     <!-- Portfolio Section -->
     <div class="row">
         @foreach (var portfolio in Model.Portfolios)
@@ -43,6 +46,15 @@
         }
     </div>
     <!-- /.row -->
+
+    <hr />
+
+    <component type="typeof(PortfolioList)" render-mode="ServerPrerendered" />
+
+    <script src="_framework/blazor.server.js">
+
+    </script>
+
 
 </div>
 <!-- /.container -->
