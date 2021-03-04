@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RazorPages.Services;
 
 namespace RazorPages
 {
@@ -17,6 +18,14 @@ namespace RazorPages
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages(); // Razor
+
+            //-------------------------------------------------------------
+            //- Dependency-Injection Container
+            //services.AddSingleton<PortfolioServiceJsonFile>();
+            //services.AddScoped<PortfolioServiceJsonFile>();
+            services.AddTransient<PortfolioServiceJsonFile>(); // new PortfolioServiceJsonFile()
+
+            //-------------------------------------------------------------
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
