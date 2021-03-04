@@ -1,13 +1,10 @@
 ﻿@page
 
 @model RazorPages.Pages.Portfolios.IndexModel
-@inject PortfolioServiceJsonFile PortfolioService
 
 @{
     @*ViewData["Title"] = "Portfolio";*@
     ViewBag.Title = "Portfolio";
-
-    var portfolios = PortfolioService.GetPortfolios();
 }
 
 <!-- Page Content -->
@@ -27,7 +24,7 @@
     
     <!-- Portfolio Section -->
     <div class="row">
-        @foreach (var portfolio in portfolios)
+        @foreach (var portfolio in Model.Portfolios)
         {
             <div class="col-lg-4 col-sm-6 portfolio-item">
                 <div class="card h-100">
