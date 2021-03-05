@@ -1,9 +1,12 @@
 ﻿@page
 
+@using RazorPages.Components
+
 @inject PortfolioServiceJsonFile PortfolioService
 
 @{
     @*Layout = "_Layout";*@
+    Layout = "_LayoutPortfolio";
 
     @*ViewData["Title"] = "Index";*@
     ViewBag.Title = "Index";
@@ -124,6 +127,8 @@
             </div>
         }
     </div>
+
+    <component type="typeof(PortfolioList)" render-mode="ServerPrerendered" />
     <!-- /.row -->
     <!-- Features Section -->
     <div class="row">

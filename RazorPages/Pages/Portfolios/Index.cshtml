@@ -3,6 +3,8 @@
 @model RazorPages.Pages.Portfolios.IndexModel
 
 @{
+    Layout = "_LayoutPortfolio";
+
     @*ViewData["Title"] = "Portfolio";*@
     ViewBag.Title = "Portfolio";
 }
@@ -51,8 +53,6 @@
 
     <component type="typeof(PortfolioList)" render-mode="ServerPrerendered" />
 
-    <script src="_framework/blazor.server.js">
-
-    </script>
+    @*<script src="_framework/blazor.server.js"></script>*@
 </div>
 <!-- /.container -->
